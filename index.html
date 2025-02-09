@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️</title>
+</head>
+<body>
+    <h2>Enter Your Name and Age</h2>
+    <input type="text" id="name" placeholder="Enter your name">
+    <input type="number" id="age" placeholder="Enter your age">
+    <button onclick="start()">Start</button>
+
+    <script>
+        function start() {
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            if (name === "" || age === "") {
+                alert("Please enter your name and age!");
+                return;
+            }
+            localStorage.setItem("gfName", name);
+            window.location.href = "chocolate.html";
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chocolate Question 🍫</title>
+</head>
+<body>
+    <h2>Do you like chocolate?</h2>
+    <button onclick="nextPage()">Yes</button>
+    <button onclick="stayHere()">No</button>
+
+    <script>
+        function nextPage() {
+            window.location.href = "food.html";
+        }
+        function stayHere() {
+            alert("Come on, who doesn't like chocolate?! 🍫 Try again!");
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Question 🍕</title>
+</head>
+<body>
+    <h2>Will you share your food with me?</h2>
+    <button onclick="nextPage()">Yes</button>
+    <button onclick="stayHere()">No</button>
+
+    <script>
+        function nextPage() {
+            window.location.href = "together.html";
+        }
+        function stayHere() {
+            alert("Really? No food sharing? I will be hungry! 😢 Try again!");
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be With Me ❤️</title>
+</head>
+<body>
+    <h2>Will you be with me?</h2>
+    <button onclick="nextPage()">Yes</button>
+    <button onclick="stayHere()">No</button>
+
+    <script>
+        let noCount = 0;
+        function nextPage() {
+            window.location.href = "love.html";
+        }
+        function stayHere() {
+            noCount++;
+            if (noCount >= 3) {
+                window.location.href = "sad.html";
+            } else {
+                alert("Think again! I'll be the best partner ever! 🥺");
+            }
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yay! Love Wins! ❤️</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: pink;
+        }
+        .heart {
+            color: red;
+            font-size: 30px;
+            animation: float 3s infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); opacity: 1; }
+            100% { transform: translateY(-100px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h2>Yay! You said YES! 🎉</h2>
+    <p>Here’s what you get by being with me:</p>
+    <ul>
+        <li>Unconditional Love ❤️</li>
+        <li>Endless Surprises 🎁</li>
+        <li>Warm Hugs & Cuddles 🤗</li>
+        <li>Romantic Dates 🍽️</li>
+        <li>A lifetime of happiness & laughter 😘</li>
+    </ul>
+    <div id="hearts"></div>
+
+    <script>
+        function createHearts() {
+            let heartContainer = document.getElementById("hearts");
+            for (let i = 0; i < 10; i++) {
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("heart");
+                heart.style.position = "absolute";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.top = Math.random() * 100 + "vh";
+                heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+                heartContainer.appendChild(heart);
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+        createHearts();
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sad 💔</title>
+</head>
+<body style="text-align: center; background-color: grey;">
+    <h2>Oh no! My heart is broken! 💔</h2>
+    <p>I thought we were meant to be... 😭</p>
+    <button onclick="retry()">Try Again</button>
+
+    <script>
+        function retry() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
